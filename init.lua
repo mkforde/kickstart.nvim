@@ -669,8 +669,12 @@ require('lazy').setup({
       local ensure_installed = vim.tbl_keys(servers or {})
       vim.list_extend(ensure_installed, {
         'stylua',
-        'markdownlint', -- Used to format Lua code
         'vale',
+        'isort',
+        'black',
+        'prettierd',
+        'prettier',
+        'markdownlint-cli2',
       })
       require('mason-tool-installer').setup { ensure_installed = ensure_installed }
 
@@ -724,12 +728,12 @@ require('lazy').setup({
       formatters_by_ft = {
         lua = { 'stylua' },
         java = { 'prettier' },
-        markdown = { 'marksman' },
+        markdown = { 'markdownlint-cli2' },
         -- Conform can also run multiple formatters sequentially
-        -- python = { "isort", "black" },
+        python = { 'isort', 'black' },
         --
         -- You can use 'stop_after_first' to run the first available formatter from the list
-        -- javascript = { "prettierd", "prettier", stop_after_first = true },
+        javascript = { 'prettierd', 'prettier', stop_after_first = true },
       },
     },
   },
