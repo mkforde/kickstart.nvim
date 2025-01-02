@@ -26,11 +26,13 @@ return {
         },
         enabled = true,
       },
+      indent = { enabled = true },
       input = { enabled = true },
       notifier = { enabled = true },
       quickfile = { enabled = true },
       lazygit = { enabled = true },
       scratch = { enabled = true },
+      gitbrowse = { enabled = true },
     },
     keys = {
       {
