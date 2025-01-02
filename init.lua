@@ -162,6 +162,10 @@ vim.opt.expandtab = true
 vim.opt.shiftwidth = 2
 vim.opt.tabstop = 2
 
+-- Spellling
+vim.opt.spelllang = 'en_us'
+vim.opt.spell = true
+
 -- [[ Basic Keymaps ]]
 --  See `:help vim.keymap.set()`
 -- Clear highlights on search when pressing <Esc> in normal mode
