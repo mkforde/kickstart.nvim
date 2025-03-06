@@ -155,7 +155,7 @@ vim.opt.inccommand = 'split'
 vim.opt.cursorline = true
 
 -- Minimal number of screen lines to keep above and below the cursor.
-vim.opt.scrolloff = 10
+vim.opt.scrolloff = 8
 
 -- Set tab size
 vim.opt.expandtab = true
@@ -164,7 +164,7 @@ vim.opt.tabstop = 2
 
 -- Spellling
 vim.opt.spelllang = 'en_us'
-vim.opt.spell = true
+vim.opt.spell = false
 
 -- [[ Basic Keymaps ]]
 --  See `:help vim.keymap.set()`
@@ -604,9 +604,7 @@ require('lazy').setup({
       --   end
       --   vim.diagnostic.config { signs = { text = diagnostic_signs } }
       -- end
-
-      -- LSP servers and clients are able to communicate to each other what features they support.
-      --  By default, Neovim doesn't support everything that is in the LSP specification.
+      -- LSP servers and clients are able to communicate to each other what features they support. By default, Neovim doesn't support everything that is in the LSP specification.
       --  When you add nvim-cmp, luasnip, etc. Neovim now has *more* capabilities.
       --  So, we create new capabilities with nvim cmp, and then broadcast that to the servers.
       local capabilities = vim.lsp.protocol.make_client_capabilities()
@@ -634,6 +632,15 @@ require('lazy').setup({
         -- ts_ls = {},
         --
         ts_ls = {},
+        harper_ls = {
+          settings = {
+            ['harper-ls'] = {
+              markdown = {
+                ignore_link_title = true,
+              },
+            },
+          },
+        },
         marksman = {},
         jdtls = {},
         pyright = {},
@@ -894,7 +901,6 @@ require('lazy').setup({
       -- - sd'']quotes
       -- - sr)'  - [S]urround [R]eplace [)] [']
       require('mini.surround').setup()
-
       -- Simple and easy statusline.
       --  You could remove this setup call if you don't like it,
       --  and try some other statusline plugin
